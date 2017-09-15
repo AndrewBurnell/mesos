@@ -215,6 +215,7 @@ if (NOT WIN32)
     containerizer/provisioner_docker_tests.cpp
     containerizer/provisioner_paths_tests.cpp
     containerizer/volume_sandbox_path_isolator_tests.cpp
+    containerizer/volume_memory_isolator_tests.cpp
     )
 endif ()
 

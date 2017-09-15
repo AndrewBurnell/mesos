@@ -1280,6 +1280,7 @@ MESOS_LINUX_FILES =									\
   slave/containerizer/mesos/isolators/volume/host_path.cpp				\
   slave/containerizer/mesos/isolators/volume/image.cpp					\
   slave/containerizer/mesos/isolators/volume/secret.cpp					\
+  slave/containerizer/mesos/isolators/volume/memory.cpp					\
   slave/containerizer/mesos/provisioner/backends/aufs.cpp				\
   slave/containerizer/mesos/provisioner/backends/bind.cpp				\
   slave/containerizer/mesos/provisioner/backends/overlay.cpp
@@ -1328,6 +1329,7 @@ MESOS_LINUX_FILES +=									\
   slave/containerizer/mesos/isolators/volume/host_path.hpp				\
   slave/containerizer/mesos/isolators/volume/image.hpp					\
   slave/containerizer/mesos/isolators/volume/secret.hpp					\
+  slave/containerizer/mesos/isolators/volume/memory.hpp					\
   slave/containerizer/mesos/provisioner/backends/aufs.hpp				\
   slave/containerizer/mesos/provisioner/backends/bind.hpp				\
   slave/containerizer/mesos/provisioner/backends/overlay.hpp
@@ -2462,7 +2464,8 @@ mesos_tests_SOURCES =						\
   tests/containerizer/provisioner_backend_tests.cpp		\
   tests/containerizer/provisioner_docker_tests.cpp		\
   tests/containerizer/provisioner_paths_tests.cpp		\
-  tests/containerizer/volume_sandbox_path_isolator_tests.cpp
+  tests/containerizer/volume_sandbox_path_isolator_tests.cpp \
+  tests/containerizer/volume_memory_isolator_tests.cpp
 
 if ENABLE_XFS_DISK_ISOLATOR
 mesos_tests_SOURCES +=						\

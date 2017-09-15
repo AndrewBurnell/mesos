@@ -98,6 +98,7 @@
 #include "slave/containerizer/mesos/isolators/volume/host_path.hpp"
 #include "slave/containerizer/mesos/isolators/volume/image.hpp"
 #include "slave/containerizer/mesos/isolators/volume/secret.hpp"
+#include "slave/containerizer/mesos/isolators/volume/memory.hpp"
 #endif // __linux__
 
 #ifdef ENABLE_PORT_MAPPING_ISOLATOR
@@ -405,6 +406,7 @@ Try<MesosContainerizer*> MesosContainerizer::create(
       [secretResolver] (const Flags& flags) -> Try<Isolator*> {
         return VolumeSecretIsolatorProcess::create(flags, secretResolver);
       }},
+    {"volume/memory", &VolumeMemoryIsolatorProcess::create},
 
     {"gpu/nvidia",
       [&nvidia] (const Flags& flags) -> Try<Isolator*> {

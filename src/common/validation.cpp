@@ -246,6 +246,12 @@ Option<Error> validateVolume(const Volume& volume)
               "'source.secret' is not set for SECRET volume");
         }
         break;
+      case Volume::Source::MEMORY_VOLUME:
+        if (!volume.source().has_memory_volume()) {
+          return Error(
+              "'source.memory_volume' is not set for MEMORY_VOLUME volume");
+        }
+        break;
       default:
         return Error("'source.type' is unknown");
     }

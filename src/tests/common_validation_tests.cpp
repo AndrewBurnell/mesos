@@ -78,6 +78,13 @@ TEST(CommonValidationTest, Volume)
         Error("'source.secret' is not set for "
               "SECRET volume"),
         common::validation::validateVolume(volume));
+
+    source->set_type(Volume::Source::MEMORY_VOLUME);
+
+    EXPECT_SOME_EQ(
+      Error("'source.memory_volume' is not set for "
+            "MEMORY_VOLUME volume"),
+      common::validation::validateVolume(volume));
   }
 }
 

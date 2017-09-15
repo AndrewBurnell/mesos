@@ -2535,6 +2535,7 @@ message Volume {
       HOST_PATH = 4;
       SANDBOX_PATH = 2;
       SECRET = 3;
+      MEMORY_VOLUME = 5;
     }
 
     message DockerVolume {
@@ -2572,6 +2573,10 @@ message Volume {
       required string path = 2;
     }
 
+    message MemoryVolume {
+      required uint64 size = 1;
+    }
+
     // Enum fields should be optional, see: MESOS-4997.
     optional Type type = 1;
 
@@ -2587,6 +2592,8 @@ message Volume {
     // The volume/secret isolator uses the secret-fetcher module (third-party or
     // internal) downloads the secret and makes it available at container_path.
     optional Secret secret = 4;
+
+    optional MemoryVolume memory_volume = 6;
   }
 
   optional Source source = 5;
